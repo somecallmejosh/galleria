@@ -87,18 +87,20 @@ onBeforeUnmount(() => {
 <template>
   <div>
     <div class="sticky top-0 z-50 w-full bg-white/90 backdrop-blur-2xl">
-      <header class="page-wrapper py-10 border-b border-[#e5e5e5] mb-10 flex justify-between items-center">
-        <Logo class="h-12" />
-        <button v-if="!slideShowActive" @click="startSlideShow" class="text-sm tracking-widest uppercase transition-opacity duration-200 hover:opacity-50">
-          Start Slideshow
-        </button>
-        <button v-else @click="stopSlideShow">Stop Slideshow</button>
+      <header class="page-wrapper py-6 lg:py-10 border-b border-[#e5e5e5] mb-6 md:mb-10 flex justify-between items-center">
+        <Logo class="h-6 ml-2 md:h-12 md:ml-0" />
+        <div class="pr-2 text-xs tracking-widest md:text-sm hover:opacity-50 md:pr-0">
+          <button v-if="!slideShowActive" @click="startSlideShow" class="uppercase">
+            Start Slideshow
+          </button>
+          <button v-else @click="stopSlideShow" class="uppercase">Stop Slideshow</button>
+        </div>
       </header>
     </div>
     <div class="relative page-wrapper">
       <div v-if="!hasActiveSlide" class="transition-all duration-500 page-wrapper">
-        <ul class="gap-6 columns-2 lg:columns-4 lg:gap-10">
-          <li v-for="artwork in data" :key="artwork.id" class="mb-6 transition-all duration-300 lg:mb-10 hover:shadow-2xl">
+        <ul class="gap-4 columns-2 lg:columns-4 lg:gap-10">
+          <li v-for="artwork in data" :key="artwork.id" class="mb-4 transition-all duration-300 lg:mb-10 hover:shadow-2xl">
             <button @click="setActiveSlide(artwork.id)" class="relative block w-full overflow-hidden mix-blend-overlay group">
               <NuxtImg :src="artwork.images.thumbnail" width="310" class="relative z-0 w-full transition-all duration-500 group-hover:scale-110 group-hover:translate-y-4" :alt="artwork.name" />
               <div class="absolute inset-0 z-10 transition-opacity duration-300 bg-gradient-to-t from-black/90 via-black/40 to-transparent group-hover:opacity-0"></div>
@@ -134,9 +136,9 @@ onBeforeUnmount(() => {
             <p><a :href="activeSlide.source" class="text-xs tracking-widest uppercase hover:underline" target="_blank" rel="nofollow">Go To Source</a></p>
           </div>
         </div>
-        <div class="relative flex items-center justify-between px-0 py-8 border-t">
+        <div class="relative flex flex-wrap items-center justify-between gap-4 px-2 py-8 border-t md:px-0">
           <div v-if="slideShowActive" class="progress-bar" :style="{ width: `${progress}%` }"></div>
-          <div>
+          <div class="">
             <p class="font-bold md:text-lg">{{  activeSlide.name }}</p>
             <p class="text-sm opacity-70">{{ activeSlide.artist.name }}</p>
           </div>
@@ -158,7 +160,7 @@ onBeforeUnmount(() => {
 
 <style>
   .page-wrapper {
-    @apply w-full max-w-[1360px] mx-auto px-6 lg:px-0
+    @apply w-full max-w-[1360px] mx-auto px-2 lg:px-0
   }
 
   .progress-bar {
