@@ -7,7 +7,7 @@ const slideshowInterval = ref(null)
 const progress = ref(0) // Reference to track the progress of the slide
 const progressInterval = ref(null) // Interval to update progress
 
-const slideDuration = 5000 // Duration for each slide in milliseconds
+const slideDuration = 20000 // Duration for each slide in milliseconds
 
 // Set active slide by ID
 const setActiveSlide = (id) => {
