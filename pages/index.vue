@@ -37,7 +37,9 @@ const previousSlide = () => {
 
 // Start slideshow with progress indicator
 const startSlideShow = () => {
-  setActiveSlide(data.value[0].id)  // Ensure the first slide is active
+  if (!hasActiveSlide.value) {
+    setActiveSlide(data.value[0].id)  // Start with the first slide if no active slide
+  }
   slideshowInterval.value = setInterval(nextSlide, slideDuration)
   slideShowActive.value = true
   startProgress() // Start progress interval
@@ -100,52 +102,52 @@ onBeforeUnmount(() => {
             <button @click="setActiveSlide(artwork.id)" class="relative block w-full overflow-hidden mix-blend-overlay group">
               <NuxtImg :src="artwork.images.thumbnail" width="310" class="relative z-0 w-full transition-all duration-500 group-hover:scale-110 group-hover:translate-y-4" :alt="artwork.name" />
               <div class="absolute inset-0 z-10 transition-opacity duration-300 bg-gradient-to-t from-black/90 via-black/40 to-transparent group-hover:opacity-0"></div>
-              <div class="absolute bottom-0 left-0 z-20 max-w-full p-8 space-y-2 text-left text-white">
-                <h2 class="text-2xl font-bold">{{ artwork.name }}</h2>
-                <p class="text-sm truncate transition-opacity duration-200 opacity-75 group-hover:opacity-100">{{ artwork.artist.name }}</p>
+              <div class="absolute bottom-0 left-0 z-20 max-w-full p-6 lg:p-8 space-y-0.5 lg:space-y-2 text-left text-white">
+                <h2 class="font-bold lg:text-2xl">{{ artwork.name }}</h2>
+                <p class="text-xs truncate transition-opacity duration-200 opacity-75 lg:text-sm group-hover:opacity-100">{{ artwork.artist.name }}</p>
               </div>
             </button>
           </li>
         </ul>
       </div>
       <div class="space-y-24 bg-white" v-if="hasActiveSlide && activeSlide">
-        <div class="grid grid-cols-3">
-          <div>
-            <NuxtImg :src="activeSlide.images.hero.large" :alt="activeSlide.name" />
+        <div class="grid md:grid-cols-2 lg:grid-cols-3">
+          <div class="relative z-0">
+            <NuxtImg class="w-full" :src="activeSlide.images.hero.large" :alt="activeSlide.name" />
           </div>
-          <div class="flex flex-col justify-between">
-            <div class="pb-6 pl-16 -translate-x-16 bg-white">
-              <h2 class="font-bold text-[56px] mb-3 max-w-[350px] leading-tight">{{ activeSlide.name }}</h2>
+          <div class="relative z-10 md:flex md:flex-col md:justify-between">
+            <div class="w-3/4 pt-6 pl-8 -translate-y-16 bg-white md:pb-6 md:translate-y-0 md:pt-0 md:pl-16 md:-translate-x-16 md:w-full">
+              <h2 class="font-bold text-[29px] md:text-[56px] mb-3 md:max-w-[350px] leading-tight">{{ activeSlide.name }}</h2>
               <p class="text-[#7d7d7d]">{{ activeSlide.artist.name }}</p>
             </div>
-            <div class="pl-8 mt-auto">
-              <NuxtImg class="translate-y-8 size-32" :src="activeSlide.artist.image" :alt="activeSlide.artist.name" />
+            <div class="pl-8 md:mt-auto">
+              <NuxtImg class="md:translate-y-8 size-32" :src="activeSlide.artist.image" :alt="activeSlide.artist.name" />
             </div>
           </div>
           <div class="flex flex-col gap-8">
             <div class="flex-1">
-              <h3 class="text-[200px] font-bold text-[#f3f3f3]">
+              <h3 class="text-[100px] md:text-[200px] font-bold text-[#f3f3f3] text-right">
                 {{  activeSlide.year }}
               </h3>
-              <p class="text-sm text-[#7d7d7d] leading-loose max-w-[350px] -mt-24">{{ activeSlide.description }}</p>
+              <p class="text-sm text-[#7d7d7d] leading-loose md:max-w-[350px] -mt-10 md:-mt-24">{{ activeSlide.description }}</p>
             </div>
             <p><a :href="activeSlide.source" class="text-xs tracking-widest uppercase hover:underline" target="_blank" rel="nofollow">Go To Source</a></p>
           </div>
         </div>
-        <div class="relative flex items-center justify-between px-10 py-8 border-t">
+        <div class="relative flex items-center justify-between px-0 py-8 border-t">
           <div v-if="slideShowActive" class="progress-bar" :style="{ width: `${progress}%` }"></div>
           <div>
-            <p class="text-lg font-bold">{{  activeSlide.name }}</p>
-            <p>{{ activeSlide.artist.name }}</p>
+            <p class="font-bold md:text-lg">{{  activeSlide.name }}</p>
+            <p class="text-sm opacity-70">{{ activeSlide.artist.name }}</p>
           </div>
           <div class="flex items-center gap-10">
             <button @click="previousSlide">
               <div class="sr-only">Previous Slide</div>
-              <IconPrevious class="size-8" />
+              <IconPrevious class="size-4 md:size-8" />
             </button>
             <button @click="nextSlide">
               <div class="sr-only">Next Slide</div>
-              <IconNext class="size-8" />
+              <IconNext class="size-4 md:size-8" />
             </button>
           </div>
         </div>
