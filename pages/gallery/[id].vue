@@ -30,6 +30,18 @@
     }
   )
 
+  const pageTitle = computed(() => data.value?.name || 'Default Title')
+  const artistName = computed(() => data.value?.artist.name || 'Default Artist Name')
+  const ogImage = computed(() => data.value?.images.gallery || 'https://example.com/image.png')
+  const year = computed(() => data.value?.year || '2021')
+  useSeoMeta({
+    title: pageTitle,
+    ogTitle: pageTitle,
+    description: `View ${pageTitle} from the year ${year} by ${artistName}`,
+    ogDescription: `View ${pageTitle} from they year ${year} by ${artistName}`,
+    ogImage: ogImage,
+  })
+
 </script>
 <template>
   <div class="w-full max-w-[1360px] mx-auto">

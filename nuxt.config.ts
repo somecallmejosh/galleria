@@ -33,4 +33,7 @@ export default defineNuxtConfig({
     cssPath: '~/assets/css/tailwind.css',
     configPath: 'tailwind.config',
   },
+  seo: {
+    automaticDefaults: true,
+  },
 })
