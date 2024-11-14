@@ -17,7 +17,7 @@ const { data } = await useFetch('/api/artworks')
               <NuxtLink :to="`/gallery/${artwork.id}`" class="relative block w-full overflow-hidden mix-blend-overlay group">
                 <NuxtImg :src="artwork.images.thumbnail" width="310" class="relative z-0 w-full transition-all duration-500 group-hover:scale-110 group-hover:translate-y-4" :alt="artwork.name" />
                 <div class="absolute inset-0 z-10 transition-opacity duration-300 bg-gradient-to-t from-black/90 via-black/40 to-transparent group-hover:opacity-0"></div>
-                <div class="absolute bottom-0 left-0 z-20 max-w-full p-6 lg:p-8 space-y-0.5 lg:space-y-2 text-left text-white">
+                <div class="absolute bottom-0 left-0 z-20 max-w-full p-4 lg:p-8 space-y-0.5 lg:space-y-2 text-left text-white">
                   <h2 class="font-bold lg:text-2xl">{{ artwork.name }}</h2>
                   <p class="text-xs truncate transition-opacity duration-200 opacity-75 lg:text-sm group-hover:opacity-100">{{ artwork.artist.name }}</p>
                 </div>
