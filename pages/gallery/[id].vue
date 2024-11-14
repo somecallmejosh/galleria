@@ -53,6 +53,7 @@
             :initial="{ opacity: 0, x: 100, scaleX: 0.8}"
             :enter="{ opacity: 1, x: 0, scaleX: 1}"
             :duration="500"
+
             class="w-full opacity-0" :src="data.images.hero.large" :alt="data.name" />
         </div>
         <div class="relative z-10 md:flex md:flex-col md:justify-between">
@@ -77,6 +78,8 @@
               :initial="{ opacity: 0, y: 100, scaleY: 0.5}"
               :enter="{ opacity: 1, y: 0, scaleY: 1}"
               :duration="200"
+              :lazy="true"
+              preoload
               class="opacity-0 md:translate-y-8 size-32" :src="data.artist.image" :alt="data.artist.name" />
           </div>
         </div>
