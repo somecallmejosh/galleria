@@ -30,15 +30,17 @@
     }
   )
 
-  const pageTitle = computed(() => data.value?.name || 'Default Title')
-  const artistName = computed(() => data.value?.artist.name || 'Default Artist Name')
-  const ogImage = computed(() => data.value?.images.gallery || 'https://example.com/image.png')
-  const year = computed(() => data.value?.year || '2021')
+  const pageTitle = computed(() => data.value?.name)
+  const artistName = computed(() => data.value?.artist.name)
+  const ogImage = computed(() => data.value?.images.gallery)
+  const year = computed(() => data.value?.year)
+  const description = `View ${pageTitle?.value} from the year ${year?.value} by ${artistName?.value}`
+
   useSeoMeta({
     title: pageTitle,
     ogTitle: pageTitle,
-    description: `View ${pageTitle} from the year ${year} by ${artistName}`,
-    ogDescription: `View ${pageTitle} from they year ${year} by ${artistName}`,
+    description: description,
+    ogDescription: description,
     ogImage: ogImage,
   })
 

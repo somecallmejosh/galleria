@@ -1,5 +1,14 @@
 <script setup>
-const { data } = await useFetch('/api/artworks')
+  const { data } = await useFetch('/api/artworks')
+  const ogImage = computed(() => data.value[0]?.images.gallery)
+  const description = "Artwork from famous historic artists."
+  useSeoMeta({
+    title: 'Gallery of Artworks',
+    ogTitle: 'Gallery of Artworks',
+    description: description,
+    ogDescription: description,
+    ogImage: ogImage,
+  })
 </script>
 
 <template>
