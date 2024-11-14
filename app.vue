@@ -35,7 +35,7 @@ watch(
     <NuxtRouteAnnouncer />
     <div class="sticky top-0 z-50 w-full bg-white/90 backdrop-blur-2xl">
       <div v-if="slideshowStore.slideShowActive" class="progress-bar lg:hidden" :style="{ width: `${slideshowStore.progress}%` }"></div>
-      <header class="page-wrapper py-6 lg:py-10 border-b border-[#e5e5e5] mb-6 md:mb-10 flex justify-between items-center">
+      <header class="page-wrapper py-6 lg:py-10 border-b border-[#e5e5e5] md:mb-10 flex justify-between items-center">
         <NuxtLink @click="routeHome" to="/">
           <span class="sr-only">Return to home page</span>
           <Logo class="h-6 ml-2 md:h-12 md:ml-0" />
