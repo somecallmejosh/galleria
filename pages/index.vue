@@ -3,13 +3,12 @@ const { data } = await useFetch('/api/artworks')
 </script>
 
 <template>
-  <div>
+  <div class="pt-6 md:pt-0">
     <div class="relative page-wrapper">
       <div class="transition-all duration-500 page-wrapper">
-        {{ status }}
-        <ul class="gap-4 columns-2 lg:columns-4 lg:gap-10">
+        <div class="gap-4 columns-2 lg:columns-4 lg:gap-10">
           <template v-for="(artwork, index) in data" :key="artwork.id" >
-            <li
+            <div
               v-motion
               :initial="{ opacity: 0, y: 20}"
               :enter="{ opacity: 1, y: 0}"
@@ -23,9 +22,9 @@ const { data } = await useFetch('/api/artworks')
                   <p class="text-xs truncate transition-opacity duration-200 opacity-75 lg:text-sm group-hover:opacity-100">{{ artwork.artist.name }}</p>
                 </div>
               </NuxtLink>
-            </li>
+            </div>
           </template>
-        </ul>
+        </div>
       </div>
     </div>
   </div>

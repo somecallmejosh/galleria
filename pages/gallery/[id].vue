@@ -53,7 +53,7 @@
               v-motion
               :initial="{ opacity: 0}"
               :enter="{ opacity: 1}"
-              :duration="1500"
+              :duration="2500"
               class="object-cover w-full origin-top opacity-0" :src="data.images.hero.large" :alt="data.name" />
           </div>
         </div>
@@ -104,7 +104,7 @@
           <p><a :href="data.source" class="text-xs tracking-widest uppercase hover:underline" target="_blank" rel="nofollow">Go To Source</a></p>
         </div>
       </div>
-      <div class="relative flex flex-wrap items-center justify-between gap-4 px-2 py-8 border-t md:px-0">
+      <div class="relative flex flex-wrap items-center justify-between gap-4 px-4 py-8 pr-6 border-t md:px-0">
         <div v-if="store.slideShowActive" class="progress-bar" :style="{ width: `${store.progress}%` }"></div>
         <div class="">
           <p class="font-bold md:text-lg">{{  data.name }}</p>
