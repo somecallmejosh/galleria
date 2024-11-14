@@ -50,11 +50,10 @@
         <div class="relative z-0">
           <NuxtImg
             v-motion
-            :initial="{ opacity: 0, x: 100, scaleX: 0.8}"
-            :enter="{ opacity: 1, x: 0, scaleX: 1}"
+            :initial="{ opacity: 0, y: 10, scaleY: 0.9}"
+            :enter="{ opacity: 1, y: 0, scaleY: 1}"
             :duration="500"
-
-            class="w-full opacity-0" :src="data.images.hero.large" :alt="data.name" />
+            class="w-full opacity-0 aspect-[151/178] origin-top" :src="data.images.hero.large" :alt="data.name" />
         </div>
         <div class="relative z-10 md:flex md:flex-col md:justify-between">
           <div
@@ -80,7 +79,7 @@
               :duration="200"
               :lazy="true"
               preoload
-              class="opacity-0 md:translate-y-8 size-32" :src="data.artist.image" :alt="data.artist.name" />
+              class="opacity-0 md:translate-y-8 size-32 aspect-square" :src="data.artist.image" :alt="data.artist.name" />
           </div>
         </div>
         <div class="flex flex-col gap-8 px-4 md:px-0">
