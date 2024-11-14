@@ -20,7 +20,9 @@ export default defineNuxtConfig({
     '@nuxt/image',
     '@nuxtjs/tailwindcss',
     '@nuxtjs/seo',
-    '@nuxtjs/google-fonts'
+    '@nuxtjs/google-fonts',
+    '@vueuse/motion/nuxt',
+    '@pinia/nuxt',
   ],
   googleFonts: {
     families: {
@@ -30,5 +32,5 @@ export default defineNuxtConfig({
   tailwindcss: {
     cssPath: '~/assets/css/tailwind.css',
     configPath: 'tailwind.config',
-  }
+  },
 })
