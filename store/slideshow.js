@@ -7,7 +7,7 @@ export const useSlideshowStore = defineStore('slideshow', () => {
   const slideshowInterval = ref(null)
   const progress = ref(0)
   const progressInterval = ref(null)
-  const slideDuration = 10000 // Duration for each slide in milliseconds
+  const slideDuration = 5000 // Duration for each slide in milliseconds
 
   // Fetch artworks data
   const fetchArtworks = async () => {

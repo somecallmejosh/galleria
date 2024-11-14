@@ -56,7 +56,7 @@
               :initial="{ opacity: 0, y: 20, scaleY: 0.9}"
               :enter="{ opacity: 1, y: 0, scaleY: 1}"
               :duration="1200"
-              class="object-cover w-full origin-bottom opacity-0" :src="data.images.hero.large" :alt="data.name" />
+              class="object-cover w-full origin-top opacity-0 lg:origin-bottom" :src="data.images.hero.large" :alt="data.name" />
           </div>
         </div>
         <div class="relative z-10 md:flex md:flex-col md:justify-between">
