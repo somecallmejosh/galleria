@@ -40,14 +40,14 @@ watch(
           <span class="sr-only">Return to home page</span>
           <Logo class="h-6 ml-2 md:h-12 md:ml-0" />
         </NuxtLink>
-        <div class="pr-2 text-xs tracking-widest md:text-sm hover:opacity-50 md:pr-0">
+        <div class="pr-2 text-xs tracking-widest md:text-sm hover:opacity-50 md:pr-0 group">
           <button v-if="!slideshowStore.slideShowActive" class="flex items-center gap-1 uppercase" @click="startSlideshow" :disabled="slideshowStore.slideShowActive">
             <icon-movie class="w-6 h-6"/>
-            Start Slideshow
+            <span class="group-hover:underline">Start Slideshow</span>
           </button>
           <button v-else class="flex items-center gap-1 uppercase" @click="stopSlideshow" :disabled="!slideshowStore.slideShowActive">
             <icon-movie-off class="w-6 h-6"/>
-            Stop Slideshow
+            <span class="group-hover:underline">Stop Slideshow</span>
           </button>
         </div>
       </header>

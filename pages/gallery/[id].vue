@@ -50,13 +50,13 @@
     <div class="space-y-24 bg-white">
       <div class="grid md:grid-cols-2 lg:grid-cols-3">
         <div class="relative z-0">
-          <div class="bg-gray-100 aspect-[151/178]">
+          <div class="aspect-[151/178]">
             <NuxtImg
               v-motion
-              :initial="{ opacity: 0}"
-              :enter="{ opacity: 1}"
-              :duration="2500"
-              class="object-cover w-full origin-top opacity-0" :src="data.images.hero.large" :alt="data.name" />
+              :initial="{ opacity: 0, y: 20, scaleY: 0.9}"
+              :enter="{ opacity: 1, y: 0, scaleY: 1}"
+              :duration="1200"
+              class="object-cover w-full origin-bottom opacity-0" :src="data.images.hero.large" :alt="data.name" />
           </div>
         </div>
         <div class="relative z-10 md:flex md:flex-col md:justify-between">
@@ -78,9 +78,9 @@
           <div class="pl-8 md:mt-auto">
             <NuxtImg
               v-motion
-              :initial="{ opacity: 0, y: 100, scaleY: 0.5}"
+              :initial="{ opacity: 0, y: 100, scaleY: 0.85}"
               :enter="{ opacity: 1, y: 0, scaleY: 1}"
-              :duration="200"
+              :duration="500"
               :lazy="true"
               preoload
               class="opacity-0 md:translate-y-8 size-32 aspect-square" :src="data.artist.image" :alt="data.artist.name" />
@@ -90,9 +90,9 @@
           <div class="relative flex-1">
             <h3
               v-motion
-              :initial="{ opacity: 0, y: 100}"
-              :enter="{ opacity: 1, y: 0}"
-              :duration="1000"
+              :initial="{ opacity: 0, y: 100, scaleY: 0.9}"
+              :enter="{ opacity: 1, y: 0, scaleY: 1}"
+              :duration="800"
               class="relative z-0 text-[100px] md:text-[200px] font-bold text-[#f3f3f3] text-right opacity-0">
               {{  data.year }}
             </h3>
@@ -112,12 +112,12 @@
           <p class="font-bold md:text-lg">{{  data.name }}</p>
           <p class="text-sm opacity-70">{{ data.artist.name }}</p>
         </div>
-        <div class="flex items-center gap-10">
-          <button @click="goToPreviousSlide">
+        <div class="flex items-center gap-6">
+          <button @click="goToPreviousSlide" class="flex items-center justify-center transition-colors duration-300 rounded-full size-12 md:size-16 hover:bg-gray-100">
             <div class="sr-only">Previous Slide</div>
             <IconPrevious class="size-4 md:size-8" />
           </button>
-          <button @click="goToNextSlide">
+          <button @click="goToNextSlide" class="flex items-center justify-center transition-colors duration-300 rounded-full size-12 md:size-16 hover:bg-gray-100">
             <div class="sr-only">Next Slide</div>
             <IconNext class="size-4 md:size-8" />
           </button>
