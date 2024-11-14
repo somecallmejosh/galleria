@@ -48,12 +48,14 @@
     <div class="space-y-24 bg-white">
       <div class="grid md:grid-cols-2 lg:grid-cols-3">
         <div class="relative z-0">
-          <NuxtImg
-            v-motion
-            :initial="{ opacity: 0, y: 10, scaleY: 0.9}"
-            :enter="{ opacity: 1, y: 0, scaleY: 1}"
-            :duration="500"
-            class="w-full opacity-0 aspect-[151/178] origin-top" :src="data.images.hero.large" :alt="data.name" />
+          <div class="bg-gray-100 aspect-[151/178]">
+            <NuxtImg
+              v-motion
+              :initial="{ opacity: 0}"
+              :enter="{ opacity: 1}"
+              :duration="1500"
+              class="object-cover w-full origin-top opacity-0" :src="data.images.hero.large" :alt="data.name" />
+          </div>
         </div>
         <div class="relative z-10 md:flex md:flex-col md:justify-between">
           <div
