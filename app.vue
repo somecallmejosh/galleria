@@ -45,8 +45,8 @@ watch(
             <icon-movie class="w-6 h-6"/>
             <span class="group-hover:underline">Start Slideshow</span>
           </button>
-          <button v-else class="flex items-center gap-1 uppercase" @click="stopSlideshow" :disabled="!slideshowStore.slideShowActive">
-            <icon-movie-off class="w-6 h-6"/>
+          <button v-else class="flex items-center gap-2 uppercase" @click="stopSlideshow" :disabled="!slideshowStore.slideShowActive">
+            <icon-spinner class="w-6 h-6 animate-spin"/>
             <span class="group-hover:underline">Stop Slideshow</span>
           </button>
         </div>
